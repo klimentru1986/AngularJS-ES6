@@ -6,7 +6,7 @@
 <div layout="row">
     <span flex="5"></span>
     <md-table-container flex>
-        <table md-table md-progress="promise">
+        <table md-table md-progress="$ctrl.progress">
             <thead md-head md-order="$ctrl.query.order" md-on-reorder="logOrder">
             <tr md-row>
                 <th md-column md-order-by="name"><span>Name</span></th>
@@ -29,7 +29,7 @@
                 <td md-cell>{{beer.ebc}}</td>
                 <td md-cell>{{beer.ibu}}</td>
                 <td md-cell>
-                    <md-button class="md-raised" ng-click="$ctrl.goToDetails(beer.id)">Details</md-button>
+                    <md-button class="md-primary" ng-click="$ctrl.goToDetails(beer.id)">Details</md-button>
                 </td>
             </tr>
             </tbody>

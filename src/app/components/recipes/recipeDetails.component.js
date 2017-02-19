@@ -11,12 +11,10 @@ class RecipeDetailsCtrl {
     }
 
     $onInit() {
-        console.log(this.$stateParams);
         this.recipesService.getBeer(this.$stateParams.id)
             .then(
                 response => {
                     this.beer = response;
-                    console.log(response);
                 },
                 error => {
                     console.error(error);

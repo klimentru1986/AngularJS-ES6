@@ -1,11 +1,12 @@
 import templateUrl from './recipesTable.component.html';
 
 class RecipesTableCtrl {
-    constructor(recipesService, $state) {
+    constructor(recipesService, $state, $timeout) {
         'ngInject';
 
         this.recipesService = recipesService;
         this.$state = $state;
+        this.$timeout = $timeout;
     }
 
     $onInit() {
@@ -20,10 +21,15 @@ class RecipesTableCtrl {
             )
 
         this.query = {
+            order: 'name',
             limit: 7,
             limitOptions: [7, 13, 20],
             page: 1
-        }
+        };
+
+        this.progress = this.$timeout(function () {
+            // loading
+        }, 2000);
     }
 
     goToDetails(id) {
