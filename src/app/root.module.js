@@ -1,10 +1,10 @@
-import common from './common/common.module';
+import app from './common/app.module';
 
 import rootComponent from './root.component';
 
 const root = angular.module('root', [
     'ngMaterial',
-    common.name
+    app.name
 ]);
 
 root.component('root', rootComponent);
