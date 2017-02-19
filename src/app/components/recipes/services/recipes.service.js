@@ -11,6 +11,14 @@ class RecipesService {
                 error => error
             );
     }
+
+    getBeer(id) {
+        return this.$http.get(`https://api.punkapi.com/v2/beers/${id}`)
+            .then(
+                response => response.data,
+                error => error
+            );
+    }
 }
 
 export default RecipesService;

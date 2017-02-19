@@ -4,6 +4,7 @@ import rootComponent from './root.component';
 
 const root = angular.module('root', [
     'ngMaterial',
+    'md.data.table',
     app.name
 ]);
 

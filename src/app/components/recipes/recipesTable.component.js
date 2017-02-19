@@ -11,12 +11,17 @@ class RecipesTableCtrl {
         this.recipesService.getBeers()
             .then(
                 response => {
+                    this.beers = response;
                     console.log(response)
                 },
                 error => {
                     console.error(error)
                 }
             )
+    }
+
+    goToDetails(id) {
+        console.log(id);
     }
 }
 
