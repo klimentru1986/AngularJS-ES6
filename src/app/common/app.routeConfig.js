@@ -1,12 +1,13 @@
 let routeConfig = ($stateProvider, $urlRouterProvider) => {
     'ngInject';
 
-    $urlRouterProvider.when('', '/recipes/beers');
+    $urlRouterProvider.otherwise('/recipes');
 
     $stateProvider
         .state('recipes', {
             name: 'recipes',
             url: '/recipes',
+            redirectTo: 'beers',
             component: 'recipes'
         })
         .state('beers', {
