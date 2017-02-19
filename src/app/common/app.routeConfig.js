@@ -1,5 +1,7 @@
-let routeConfig = ($stateProvider) => {
+let routeConfig = ($stateProvider, $urlRouterProvider) => {
     'ngInject';
+
+    $urlRouterProvider.when('', '/recipes');
 
     $stateProvider
         .state('recipes', {

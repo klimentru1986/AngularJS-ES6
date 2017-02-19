@@ -1,3 +1,10 @@
-
-<a ui-sref="recipes">Recipes</a>
-<a ui-sref="favorites">Favofites</a>
+<div layout="row">
+    <span flex="5"></span>
+    <div flex>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab ui-sref="recipes" ui-sref-active="active" label="Recipes"></md-tab>
+            <md-tab ui-sref="favorites" ui-sref-active="active" label="Favofites"></md-tab>
+        </md-tabs>
+    </div>
+    <span flex="5"></span>
+</div>
