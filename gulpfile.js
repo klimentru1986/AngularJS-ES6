@@ -63,8 +63,8 @@ gulp.task('vendorJs', () => {
 
     let libs = [
         'node_modules/angular/angular.min.js',
-        'node_modules/angular-animate/angular-animate.min.js',
         'node_modules/angular-aria/angular-aria.min.js',
+        'node_modules/angular-animate/angular-animate.min.js',
         'node_modules/angular-material/angular-material.min.js'
     ];
 
@@ -85,7 +85,7 @@ gulp.task('build', ['clean'], () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch('src/**/*.html', ['html']);
+    gulp.watch('src/**/*.html', ['html', 'app']);
     gulp.watch('src/**/*.js', ['app']);
     gulp.watch('src/**/*.css', ['css']);
     gulp.watch('dist/**/*').on('change', browserSync.reload);
@@ -99,4 +99,6 @@ gulp.task('serve', () => {
         }
     });
 });
+
+gulp.task('default', ['watch', 'serve']);
 
