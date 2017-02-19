@@ -1,0 +1,48 @@
+<div layout="row">
+    <span flex="5"></span>
+    <md-card md-theme-watch flex>
+        <md-card-title>
+
+            <md-card-title-media>
+                <div class="md-media-lg card-media">
+                    <img class="card-img" ng-src="{{$ctrl.beer.image_url}}">
+                </div>
+            </md-card-title-media>
+
+            <md-card-title-text>
+                <span class="md-headline">{{$ctrl.beer.name}}</span>
+
+                <span class="md-subhead">
+                    <span class="card-subtitile">ABV:</span> {{$ctrl.beer.abv}}
+                </span>
+
+                <span class="md-subhead">
+                    <span class="card-subtitile">First brewed:</span> {{$ctrl.beer.first_brewed}}
+                </span>
+
+                <span class="md-subhead">
+                    <span class="card-subtitile">Brews tips:</span> {{$ctrl.beer.brewers_tips}}
+                </span>
+
+                <span class="md-subhead">
+                    <span class="card-subtitile">Description:</span> {{$ctrl.beer.description}}
+                </span>
+
+                <span class="md-subhead">
+                    <div class="card-subtitile">Food Pairing:</div>
+                    <div ng-repeat="food in $ctrl.beer.food_pairing">{{food}}</div>
+                </span>
+
+                <span class="md-subhead">
+                    <span class="card-subtitile">Tagline:</span> {{$ctrl.beer.tagline}}
+                </span>
+
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button>add to favorites</md-button>
+            <md-button ng-click="$ctrl.goBack()">go back</md-button>
+        </md-card-actions>
+    </md-card>
+    <span flex="5"></span>
+</div>

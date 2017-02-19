@@ -7,3 +7,13 @@
     padding: 1px;
     padding-left: 15px;
 }
+
+.card-img{
+    height:inherit;
+    width: initial;
+    margin: 0 auto;
+}
+
+.card-subtitile{
+    font-weight: bold;
+}

@@ -1,10 +1,11 @@
 import templateUrl from './recipesTable.component.html';
 
 class RecipesTableCtrl {
-    constructor(recipesService) {
+    constructor(recipesService, $state) {
         'ngInject';
 
         this.recipesService = recipesService;
+        this.$state = $state;
     }
 
     $onInit() {
@@ -12,7 +13,6 @@ class RecipesTableCtrl {
             .then(
                 response => {
                     this.beers = response;
-                    console.log(response)
                 },
                 error => {
                     console.error(error)
@@ -27,7 +27,7 @@ class RecipesTableCtrl {
     }
 
     goToDetails(id) {
-        console.log(id);
+        this.$state.go('beer', {'id': id});
     }
 }
 

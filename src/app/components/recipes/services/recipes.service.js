@@ -15,7 +15,7 @@ class RecipesService {
     getBeer(id) {
         return this.$http.get(`https://api.punkapi.com/v2/beers/${id}`)
             .then(
-                response => response.data,
+                response => response.data[0],
                 error => error
             );
     }
