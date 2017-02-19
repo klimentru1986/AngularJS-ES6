@@ -1,4 +1,3 @@
-
 <div layout="row">
     <span flex="5"></span>
     <h3>BEER RECIPES</h3>
@@ -6,35 +5,47 @@
 
 <div layout="row">
     <span flex="5"></span>
-        <md-table-container flex>
-            <table md-table md-progress="promise">
-                <thead md-head md-order="query.order" md-on-reorder="logOrder">
-                <tr md-row>
-                    <th md-column md-order-by="name"><span>Name</span></th>
-                    <th md-column md-order-by="name"><span>Contributed by</span></th>
-                    <th md-column md-order-by="name"><span>Firs brewed</span></th>
-                    <th md-column md-order-by="name"><span>ABV</span></th>
-                    <th md-column md-order-by="name"><span>EBC</span></th>
-                    <th md-column md-order-by="name"><span>IBU</span></th>
-                    <th md-column><span></span></th>
-                </tr>
-                </thead>
-                <tbody md-body>
-                <tr md-row ng-repeat="beer in $ctrl.beers
-        | orderBy: query.order
-        | limitTo: query.limit : (query.page -1) * query.limit">
-                    <td md-cell>{{beer.name}}</td>
-                    <td md-cell>{{beer.contributed_by}}</td>
-                    <td md-cell>{{beer.first_brewed}}</td>
-                    <td md-cell>{{beer.abv}}</td>
-                    <td md-cell>{{beer.ebc}}</td>
-                    <td md-cell>{{beer.ibu}}</td>
-                    <td md-cell>
-                        <md-button class="md-raised" ng-click="$ctrl.goToDetails(beer.id)">Details</md-button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </md-table-container>
+    <md-table-container flex>
+        <table md-table md-progress="promise">
+            <thead md-head md-order="query.order" md-on-reorder="logOrder">
+            <tr md-row>
+                <th md-column md-order-by="name"><span>Name</span></th>
+                <th md-column><span>Contributed by</span></th>
+                <th md-column><span>First brewed</span></th>
+                <th md-column md-order-by="abv"><span>ABV*</span></th>
+                <th md-column md-order-by="ebc"><span>EBC*</span></th>
+                <th md-column md-order-by="ibu"><span>IBU*</span></th>
+                <th md-column><span></span></th>
+            </tr>
+            </thead>
+            <tbody md-body>
+            <tr md-row ng-repeat="beer in $ctrl.beers
+        | orderBy: $ctrl.query.order
+        | limitTo: $ctrl.query.limit : ($ctrl.query.page -1) * $ctrl.query.limit">
+                <td md-cell>{{beer.name}}</td>
+                <td md-cell>{{beer.contributed_by}}</td>
+                <td md-cell>{{beer.first_brewed}}</td>
+                <td md-cell>{{beer.abv}}</td>
+                <td md-cell>{{beer.ebc}}</td>
+                <td md-cell>{{beer.ibu}}</td>
+                <td md-cell>
+                    <md-button class="md-raised" ng-click="$ctrl.goToDetails(beer.id)">Details</md-button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <span flex="5"></span>
+</div>
+<div layout="row">
+    <div flex="5"></div>
+    <div flex class="table__description">
+        <div class="table__description-item">ABV - Alcohol By Volume</div>
+        <div class="table__description-item">EBC - European Brewery Convention </div>
+        <div class="table__description-item">IBU - International Bittering Units</div>
+    </div>
+    <md-table-pagination md-limit="$ctrl.query.limit" md-limit-options="$ctrl.query.limitOptions" md-page="$ctrl.query.page"
+            md-total="{{$ctrl.beers.length}}">
+    </md-table-pagination>
     <span flex="5"></span>
 </div>

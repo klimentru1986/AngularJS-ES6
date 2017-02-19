@@ -18,6 +18,12 @@ class RecipesTableCtrl {
                     console.error(error)
                 }
             )
+
+        this.query = {
+            limit: 7,
+            limitOptions: [7, 13, 20],
+            page: 1
+        }
     }
 
     goToDetails(id) {
