@@ -1,8 +1,8 @@
 import app from './common/app.module';
 
-import rootComponent from './root.component';
+import FavoritModelService from './favoritsModel.service';
 
-import beers from './mock/beers';
+import rootComponent from './root.component';
 
 const root = angular.module('root', [
     'ngMaterial',
@@ -10,8 +10,5 @@ const root = angular.module('root', [
     app.name
 ]);
 
-root.component('root', rootComponent);
-
-root.run(()=>{
-   console.log(beers);
-});
+root.service('favoritModel', FavoritModelService)
+    .component('root', rootComponent);

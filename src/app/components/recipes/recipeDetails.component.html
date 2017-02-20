@@ -40,7 +40,8 @@
             </md-card-title-text>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-            <md-button>add to favorites</md-button>
+            <md-button ng-click="$ctrl.push($ctrl.beer)" ng-if="!$ctrl.isFavorit($ctrl.beer)">add to favorites</md-button>
+            <md-button ng-click="$ctrl.remove($ctrl.beer)" ng-if="$ctrl.isFavorit($ctrl.beer)">remove from favorites</md-button>
             <md-button ng-click="$ctrl.goBack()">go back</md-button>
         </md-card-actions>
     </md-card>
