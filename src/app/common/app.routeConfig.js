@@ -1,6 +1,7 @@
 let routeConfig = ($stateProvider, $urlRouterProvider) => {
     'ngInject';
 
+
     $urlRouterProvider.otherwise('/recipes');
 
     $stateProvider
@@ -17,16 +18,16 @@ let routeConfig = ($stateProvider, $urlRouterProvider) => {
             component: 'recipesTable'
         })
         .state('beer', {
-        parent: 'recipes',
-        name: 'beer',
-        url: '/beer/:id',
-        component: 'recipeDetails'
-    })
+            parent: 'recipes',
+            name: 'beer',
+            url: '/beer/:id',
+            component: 'recipeDetails'
+        })
         .state('favorites', {
             name: 'favorites',
             url: '/favorites',
             component: 'favorites'
         });
-};
 
+};
 export default routeConfig;
