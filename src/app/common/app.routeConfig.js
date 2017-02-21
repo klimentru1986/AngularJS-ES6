@@ -21,7 +21,14 @@ let routeConfig = ($stateProvider, $urlRouterProvider) => {
             parent: 'recipes',
             name: 'beer',
             url: '/beer/:id',
-            component: 'recipeDetails'
+            component: 'recipeDetails',
+            bindings: {beer: 'getBeer'},
+            resolve: {
+                getBeer: (recipesService, $stateParams) => {
+                    'ngInject';
+                    return recipesService.getBeer($stateParams.id)
+                }
+            }
         })
         .state('favorites', {
             redirectTo: 'list',
@@ -39,7 +46,14 @@ let routeConfig = ($stateProvider, $urlRouterProvider) => {
             parent: 'favorites',
             name: 'favoritDetails',
             url: '/:id',
-            component: 'recipeDetails'
+            component: 'recipeDetails',
+            bindings: {beer: 'getBeer'},
+            resolve: {
+                getBeer: (recipesService, $stateParams) => {
+                    'ngInject';
+                    return recipesService.getBeer($stateParams.id)
+                }
+            }
         });
 
 };

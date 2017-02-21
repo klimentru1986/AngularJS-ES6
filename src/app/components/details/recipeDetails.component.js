@@ -11,17 +11,17 @@ class RecipeDetailsCtrl {
         this.favoritModel = favoritModel;
     }
 
-    $onInit() {
-        this.recipesService.getBeer(this.$stateParams.id)
-            .then(
-                response => {
-                    this.beer = response;
-                },
-                error => {
-                    console.error(error);
-                }
-            )
-    }
+    // $onInit() {
+    //     this.recipesService.getBeer(this.$stateParams.id)
+    //         .then(
+    //             response => {
+    //                 this.beer = response;
+    //             },
+    //             error => {
+    //                 console.error(error);
+    //             }
+    //         )
+    // }
 
     goBack() {
         window.history.go(-1);
@@ -42,7 +42,10 @@ class RecipeDetailsCtrl {
 
 const recipeDetails = {
     templateUrl,
-    controller: RecipeDetailsCtrl
+    controller: RecipeDetailsCtrl,
+    bindings: {
+        beer: '<'
+    }
 };
 
 export default recipeDetails;
