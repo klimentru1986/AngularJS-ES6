@@ -1,0 +1,27 @@
+<md-card>
+    <md-card-title layout="column">
+        <md-card-title-media flex layout="row">
+            <div class="md-media-lg card-media" flex>
+                <img class="card-img" ng-src="{{$ctrl.beer.image_url}}">
+            </div>
+        </md-card-title-media>
+        <md-card-title-text>
+            <span class="md-headline">{{$ctrl.beer.name}}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content layout="column">
+        <span class="md-subhead">
+                    <span class="card-subtitile">ABV:</span> {{$ctrl.beer.abv}}
+        </span>
+
+        <span class="md-subhead">
+            <span class="card-subtitile">First brewed:</span> {{$ctrl.beer.first_brewed}}
+        </span>
+
+        <span class="md-subhead"><span class="card-subtitile">Brews tips:</span> {{$ctrl.beer.brewers_tips}}
+               </span>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button ng-click="$ctrl.goToDetails($ctrl.beer.id)">Details</md-button>
+    </md-card-actions>
+</md-card>

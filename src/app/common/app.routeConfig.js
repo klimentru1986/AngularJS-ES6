@@ -24,9 +24,22 @@ let routeConfig = ($stateProvider, $urlRouterProvider) => {
             component: 'recipeDetails'
         })
         .state('favorites', {
+            redirectTo: 'list',
             name: 'favorites',
             url: '/favorites',
             component: 'favorites'
+        })
+        .state('list', {
+            parent: 'favorites',
+            name: 'list',
+            url: '/list',
+            component: 'favoritesList'
+        })
+        .state('favoritDetails', {
+            parent: 'favorites',
+            name: 'favoritDetails',
+            url: '/:id',
+            component: 'recipeDetails'
         });
 
 };

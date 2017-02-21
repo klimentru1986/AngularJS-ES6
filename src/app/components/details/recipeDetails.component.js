@@ -31,12 +31,12 @@ class RecipeDetailsCtrl {
         this.favoritModel.push(beer);
     }
 
-    remove(beer){
+    remove(beer) {
         this.favoritModel.remove(beer);
     }
 
     isFavorit(beer) {
-        return this.favoritModel.get().indexOf(beer) !== -1;
+        return this.favoritModel.get().find(item => beer && item.id === beer.id) ? true : false;
     }
 }
 

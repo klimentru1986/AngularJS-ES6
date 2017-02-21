@@ -1,0 +1,11 @@
+<div layout="row">
+    <span flex="5"></span>
+    <div flex layout-align="stretch">
+        <div ng-repeat="favoritBeer in $ctrl.favorits" flex="20"  style="display: inline-block;">
+            <favorit-card
+                    beer="favoritBeer">
+            </favorit-card>
+        </div>
+    </div>
+    <span flex="5"></span>
+</div>
