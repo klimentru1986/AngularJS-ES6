@@ -24,7 +24,7 @@ class RecipeDetailsCtrl {
     }
 
     goBack() {
-        this.$state.go('beers');
+        window.history.go(-1);
     }
 
     push(beer) {
