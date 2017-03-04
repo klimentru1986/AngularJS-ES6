@@ -1,0 +1,63 @@
+<form name="$ctrl.regForm" ng-if="!$ctrl.authUser.auth">
+
+    <h2>Форма регистрации</h2>
+
+    <div class="form-group">
+        <label for="name">Псевдоним<span class="red">*</span></label>
+        <input type="text"
+               id="name"
+               name="name"
+               ng-model="$ctrl.authUser.user.name"
+               ng-minlength="3"
+               ng-maxlength="10"
+               ng-required="true">
+    </div>
+    <div class="red" ng-show="$ctrl.regForm.name.$invalid && $ctrl.regForm.name.$touched">
+        Псевдоним должен быть от 3 до 10 символов
+    </div>
+
+    <div class="form-group">
+        <label for="email">Почта<span class="red">*</span></label>
+        <input type="text"
+               id="email"
+               name="email"
+               ng-model="$ctrl.authUser.user.email"
+               ng-minlength="7"
+               ng-pattern="$ctrl.regexp.email"
+               ng-required="true">
+    </div>
+    <div class="red" ng-show="$ctrl.regForm.email.$invalid && $ctrl.regForm.email.$touched">
+        некоректный адресс почты
+    </div>
+
+    <div class="form-group">
+        <label for="password">Пароль<span class="red">*</span></label>
+        <input type="password"
+               id="password"
+               name="password"
+               ng-minlength="8"
+               ng-model="$ctrl.authUser.user.password"
+               ng-required="true">
+    </div>
+    <div class="red" ng-show="$ctrl.regForm.password.$invalid && $ctrl.regForm.password.$touched">
+        длинна пароля должна быть больше восьми символов
+    </div>
+
+    <div class="form-group">
+        <label for="passwordR">Повторить пароль<span class="red">*</span></label>
+        <input type="password"
+               id="passwordR"
+               name="passwordR"
+               ng-minlength="8"
+               ng-model="$ctrl.passwordR"
+               ng-disabled="$ctrl.regForm.password.$invalid"
+               ng-required="true">
+        <div class="red" ng-show="$ctrl.regForm.passwordR.$touched && $ctrl.authUser.user.password != $ctrl.passwordR">
+            пароль не совпадает
+        </div>
+    </div>
+
+    <div ng-if="!$ctrl.authUser.auth">
+        <button ng-click="$ctrl.reg()" ng-disabled="$ctrl.regForm.$invalid">Регистрация</button>
+    </div>
+</form>

@@ -5,6 +5,16 @@ let routeConfig = ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/recipes');
 
     $stateProvider
+        .state('auth',{
+            name: 'auth',
+            url: '/auth',
+            component: 'auth'
+        })
+        .state('reg',{
+            name: 'reg',
+            url: '/reg',
+            component: 'reg'
+        })
         .state('recipes', {
             name: 'recipes',
             url: '/recipes',
