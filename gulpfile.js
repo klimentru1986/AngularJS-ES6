@@ -35,25 +35,7 @@ gulp.task('vendorCss', () => {
 });
 
 gulp.task('app', () => {
-
-    const markup = {
-        test: /\.html$/,
-        loaders: ['ngtemplate-loader', 'html-loader']
-    };
-
-    const scripts = {
-        test: /\.js$/,
-        exclude: /src\/app/,
-        loaders: ['uglify-loader', 'ng-annotate-loader', 'babel-loader?presets[]=es2015']
-    };
-
-    let config = {
-        devtool: 'sourcemap',
-        module: {
-            loaders: [scripts, markup]
-        },
-        plugins: []
-    };
+    let config = require('./webpack.config');
     return gulp.src('src/app/root.module.js')
         .pipe(named())
         .pipe(gulpWebpack(config, webpack))
