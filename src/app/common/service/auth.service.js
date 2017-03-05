@@ -1,10 +1,10 @@
 class Auth {
     constructor() {
-        this.auth = true;
+        this.auth = false;
 
         this.user = {
             name: '',
-            email: 'dsfsdfds',
+            email: '',
             password: ''
         }
     }
