@@ -22,8 +22,8 @@ class RecipesTableCtrl {
 
         this.query = {
             order: 'name',
-            limit: 7,
-            limitOptions: [7, 13, 20],
+            limit: 5,
+            limitOptions: [5, 13, 20],
             page: 1
         };
 

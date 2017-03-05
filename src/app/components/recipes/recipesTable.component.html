@@ -5,6 +5,14 @@
 
 <div layout="row">
     <span flex="5"></span>
+    <md-input-container flex="50" style="margin-top: 0;">
+        <label>search</label>
+        <input ng-model="$ctrl.search.name">
+    </md-input-container>
+</div>
+
+<div layout="row">
+    <span flex="5"></span>
     <md-table-container flex>
         <table md-table md-progress="$ctrl.progress">
             <thead md-head md-order="$ctrl.query.order" md-on-reorder="logOrder">
@@ -20,8 +28,9 @@
             </thead>
             <tbody md-body>
             <tr md-row ng-repeat="beer in $ctrl.beers
-        | orderBy: $ctrl.query.order
-        | limitTo: $ctrl.query.limit : ($ctrl.query.page -1) * $ctrl.query.limit">
+                | orderBy: $ctrl.query.order
+                | limitTo: $ctrl.query.limit : ($ctrl.query.page -1) * $ctrl.query.limit
+                | filter: $ctrl.search:strict">
                 <td md-cell>{{beer.name}}</td>
                 <td md-cell>{{beer.contributed_by}}</td>
                 <td md-cell>{{beer.first_brewed}}</td>
@@ -41,11 +50,12 @@
     <div flex="5"></div>
     <div flex class="table__description">
         <div class="table__description-item">ABV - Alcohol By Volume</div>
-        <div class="table__description-item">EBC - European Brewery Convention </div>
+        <div class="table__description-item">EBC - European Brewery Convention</div>
         <div class="table__description-item">IBU - International Bittering Units</div>
     </div>
-    <md-table-pagination md-limit="$ctrl.query.limit" md-limit-options="$ctrl.query.limitOptions" md-page="$ctrl.query.page"
-            md-total="{{$ctrl.beers.length}}">
+    <md-table-pagination md-limit="$ctrl.query.limit" md-limit-options="$ctrl.query.limitOptions"
+                         md-page="$ctrl.query.page"
+                         md-total="{{($ctrl.beers|filter:$ctrl.search:strict).length}}">
     </md-table-pagination>
     <span flex="5"></span>
 </div>
