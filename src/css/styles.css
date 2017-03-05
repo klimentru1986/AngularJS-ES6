@@ -1,19 +1,32 @@
-.table__description{
-    border-top: 1px rgba(0,0,0,.12) solid;
+.table__description {
+    border-top: 1px rgba(0, 0, 0, .12) solid;
 }
 
-.table__description-item{
+.main-page__container {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.table__description-item {
     font-size: 11px;
     padding: 1px;
     padding-left: 15px;
 }
 
-.card-img{
-    height:inherit;
+.card-img {
+    height: inherit;
     width: initial;
     margin: 0 auto;
 }
 
-.card-subtitile{
+.card-subtitile {
     font-weight: bold;
+}
+
+.red {
+    color: red;
+}
+
+.auth-and-reg__input-container{
+    width: 100%;
 }
