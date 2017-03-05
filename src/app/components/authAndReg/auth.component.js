@@ -8,13 +8,6 @@ class AuthCtrl {
         this.$state = $state;
     }
 
-    $onInit() {
-
-        this.regexp = {
-            emial: /^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/
-        }
-    };
-
     auth(auth) {
         this.authService.auth = auth;
 

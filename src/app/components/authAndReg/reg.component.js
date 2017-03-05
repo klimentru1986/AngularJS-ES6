@@ -8,14 +8,6 @@ class RegCtrl {
         this.$state = $state;
     }
 
-    $onInit() {
-
-        this.regexp = {
-            emial: /^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/
-        }
-    };
-
-
     reg() {
 
         this.authService.auth = true;

@@ -30,10 +30,11 @@
                        name="email"
                        ng-model="$ctrl.authService.user.email"
                        ng-minlength="7"
-                       ng-pattern="$ctrl.regexp.email"
+                       ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,3}$/"
                        ng-required="true">
                 <div ng-messages="$ctrl.regForm.email.$error">
-                    <div ng-message="required" ng-show="$ctrl.regForm.email.$invalid && $ctrl.regForm.email.$touched">
+                    <div ng-message-exp="['required', 'minlength', 'pattern']"
+                         ng-show="$ctrl.regForm.email.$invalid && $ctrl.regForm.email.$touched">
                         некоректный адресс почты
                     </div>
                 </div>
