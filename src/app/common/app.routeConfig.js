@@ -1,5 +1,7 @@
-let routeConfig = ($stateProvider, $urlRouterProvider) => {
+let routeConfig = ($stateProvider, $urlRouterProvider, $httpProvider) => {
     'ngInject';
+
+    $httpProvider.interceptors.push('authInterceptor');
 
     $urlRouterProvider.otherwise('/');
 
