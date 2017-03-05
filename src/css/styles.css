@@ -27,6 +27,11 @@
     color: red;
 }
 
+.auth-and-reg__card{
+    margin-top: 30px;
+    padding: 20px;
+}
+
 .auth-and-reg__input-container{
     width: 100%;
 }

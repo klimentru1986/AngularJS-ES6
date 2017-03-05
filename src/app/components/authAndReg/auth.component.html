@@ -1,53 +1,57 @@
 <div layout="row" layout-align="center center">
-    <form name="$ctrl.loginForm" ng-if="!$ctrl.authUser.auth"
-          flex="30" layout="column" layout-align="center start">
+    <md-card class="auth-and-reg__card"
+            ng-if="!$ctrl.authService.auth"
+             flex="30" layout="column" layout-align="center start">
+        <form name="$ctrl.loginForm">
 
-        <h2>LOGIN</h2>
+            <h2>LOGIN</h2>
 
-        <md-input-container class="auth-and-reg__input-container">
-            <label for="email">e-mail</label>
-            <input type="text"
-                   id="email"
-                   name="email"
-                   ng-model="$ctrl.authUser.user.email"
-                   ng-minlength="7"
-                   ng-pattern="$ctrl.regexp.email"
-                   ng-required="true">
-            <div ng-messages="$ctrl.loginForm.email.$error">
-                <div ng-message="required" ng-show="$ctrl.loginForm.email.$invalid && $ctrl.loginForm.email.$touched">
-                    некоректный адресс почты
+            <md-input-container class="auth-and-reg__input-container">
+                <label for="email">e-mail</label>
+                <input type="text"
+                       id="email"
+                       name="email"
+                       ng-model="$ctrl.authService.user.email"
+                       ng-minlength="7"
+                       ng-pattern="$ctrl.regexp.email"
+                       ng-required="true">
+                <div ng-messages="$ctrl.loginForm.email.$error">
+                    <div ng-message="required"
+                         ng-show="$ctrl.loginForm.email.$invalid && $ctrl.loginForm.email.$touched">
+                        некоректный адресс почты
+                    </div>
                 </div>
-            </div>
-        </md-input-container>
+            </md-input-container>
 
-        <md-input-container class="auth-and-reg__input-container">
-            <label for="password">password</label>
-            <input type="password"
-                   id="password"
-                   name="password"
-                   ng-minlength="8"
-                   ng-model="$ctrl.authUser.user.password"
-                   ng-required="true">
-            <div ng-messages="$ctrl.loginForm.password.$error">
-                <div ng-message="required"
-                     ng-show="$ctrl.loginForm.password.$invalid && $ctrl.loginForm.password.$touched">
-                    длинна пароля должна быть больше восьми символов
+            <md-input-container class="auth-and-reg__input-container">
+                <label for="password">password</label>
+                <input type="password"
+                       id="password"
+                       name="password"
+                       ng-minlength="8"
+                       ng-model="$ctrl.authService.user.password"
+                       ng-required="true">
+                <div ng-messages="$ctrl.loginForm.password.$error">
+                    <div ng-message="required"
+                         ng-show="$ctrl.loginForm.password.$invalid && $ctrl.loginForm.password.$touched">
+                        длинна пароля должна быть больше восьми символов
+                    </div>
                 </div>
+            </md-input-container>
+
+            <div class="auth-and-reg__input-container"
+                 layout="row" layout-align="space-around center">
+                <md-button
+                        class="md-primary md-raised"
+                        ng-click="$ctrl.auth(true)"
+                        ng-disabled="$ctrl.loginForm.$invalid">
+                    login
+                </md-button>
+                <a ui-sref="reg">REGISTRATION</a>
             </div>
-        </md-input-container>
 
-        <div class="auth-and-reg__input-container"
-             layout="row" layout-align="space-around center">
-            <md-button
-                    class="md-primary md-raised"
-                    ng-click="$ctrl.auth(true)"
-                    ng-disabled="$ctrl.loginForm.$invalid">
-                login
-            </md-button>
-            <a ui-sref="reg">REGISTRATION</a>
-        </div>
-
-    </form>
+        </form>
+    </md-card>
 </div>
 
 

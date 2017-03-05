@@ -15,17 +15,12 @@ class RegCtrl {
         }
     };
 
-    auth(auth) {
-        this.authService.auth = auth;
-
-        // if (auth) {
-        //     this.$state.go('currency')
-        // }
-    }
 
     reg() {
+
         this.authService.auth = true;
-    }
+        this.$state.go('recipes');
+    };
 }
 
 const reg = {

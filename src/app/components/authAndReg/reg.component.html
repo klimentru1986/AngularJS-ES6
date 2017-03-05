@@ -1,83 +1,88 @@
 <div layout="row" layout-align="center center">
-    <form name="$ctrl.regForm" ng-if="!$ctrl.authUser.auth"
-          flex="30" layout="column" layout-align="center start">
+    <md-card class="auth-and-reg__card"
+             ng-if="!$ctrl.authService.auth"
+             flex="30" layout="column" layout-align="center start">
+        <form name="$ctrl.regForm">
 
-        <h2>REGISTRATION</h2>
+            <h2>REGISTRATION</h2>
 
-        <md-input-container class="auth-and-reg__input-container">
-            <label for="name">name</label>
-            <input type="text"
-                   id="name"
-                   name="name"
-                   ng-model="$ctrl.authUser.user.name"
-                   ng-minlength="3"
-                   ng-maxlength="10"
-                   ng-required="true">
-            <div ng-messages="$ctrl.regForm.name.$error">
-                <div ng-message="required" ng-show="$ctrl.regForm.name.$invalid && $ctrl.regForm.name.$touched">
-                    Псевдоним должен быть от 3 до 10 символов
+            <md-input-container class="auth-and-reg__input-container">
+                <label for="name">name</label>
+                <input type="text"
+                       id="name"
+                       name="name"
+                       ng-model="$ctrl.authService.user.name"
+                       ng-minlength="3"
+                       ng-maxlength="10"
+                       ng-required="true">
+                <div ng-messages="$ctrl.regForm.name.$error">
+                    <div ng-message="required" ng-show="$ctrl.regForm.name.$invalid && $ctrl.regForm.name.$touched">
+                        Псевдоним должен быть от 3 до 10 символов
+                    </div>
                 </div>
-            </div>
-        </md-input-container>
+            </md-input-container>
 
 
-        <md-input-container class="auth-and-reg__input-container">
-            <label for="email">email</label>
-            <input type="text"
-                   id="email"
-                   name="email"
-                   ng-model="$ctrl.authUser.user.email"
-                   ng-minlength="7"
-                   ng-pattern="$ctrl.regexp.email"
-                   ng-required="true">
-            <div ng-messages="$ctrl.regForm.email.$error">
-                <div ng-message="required" ng-show="$ctrl.regForm.email.$invalid && $ctrl.regForm.email.$touched">
-                    некоректный адресс почты
+            <md-input-container class="auth-and-reg__input-container">
+                <label for="email">email</label>
+                <input type="text"
+                       id="email"
+                       name="email"
+                       ng-model="$ctrl.authService.user.email"
+                       ng-minlength="7"
+                       ng-pattern="$ctrl.regexp.email"
+                       ng-required="true">
+                <div ng-messages="$ctrl.regForm.email.$error">
+                    <div ng-message="required" ng-show="$ctrl.regForm.email.$invalid && $ctrl.regForm.email.$touched">
+                        некоректный адресс почты
+                    </div>
                 </div>
-            </div>
-        </md-input-container>
+            </md-input-container>
 
-        <md-input-container class="auth-and-reg__input-container">
-            <label for="password">password</label>
-            <input type="password"
-                   id="password"
-                   name="password"
-                   ng-minlength="8"
-                   ng-model="$ctrl.authUser.user.password"
-                   ng-required="true">
+            <md-input-container class="auth-and-reg__input-container">
+                <label for="password">password</label>
+                <input type="password"
+                       id="password"
+                       name="password"
+                       ng-minlength="8"
+                       ng-model="$ctrl.authService.user.password"
+                       ng-required="true">
 
 
-            <div ng-messages="$ctrl.regForm.password.$error">
-                <div ng-message="required" ng-show="$ctrl.regForm.password.$invalid && $ctrl.regForm.password.$touched">
-                    длинна пароля должна быть больше восьми символов
+                <div ng-messages="$ctrl.regForm.password.$error">
+                    <div ng-message="required"
+                         ng-show="$ctrl.regForm.password.$invalid && $ctrl.regForm.password.$touched">
+                        длинна пароля должна быть больше восьми символов
+                    </div>
                 </div>
-            </div>
-        </md-input-container>
+            </md-input-container>
 
-        <md-input-container class="auth-and-reg__input-container">
-            <label for="passwordR">repeat password</label>
-            <input type="password"
-                   id="passwordR"
-                   name="passwordR"
-                   ng-minlength="8"
-                   ng-model="$ctrl.passwordR"
-                   ng-disabled="$ctrl.regForm.password.$invalid"
-                   ng-required="true">
+            <md-input-container class="auth-and-reg__input-container">
+                <label for="passwordR">repeat password</label>
+                <input type="password"
+                       id="passwordR"
+                       name="passwordR"
+                       ng-minlength="8"
+                       ng-model="$ctrl.passwordR"
+                       ng-disabled="$ctrl.regForm.password.$invalid"
+                       ng-required="true">
 
-            <div ng-messages="$ctrl.regForm.passwordR.$error">
-                <div ng-message="required" ng-show="$ctrl.regForm.passwordR.$touched && $ctrl.authUser.user.password != $ctrl.passwordR">
-                    пароль не совпадает
+                <div ng-messages="$ctrl.regForm.passwordR.$error">
+                    <div ng-message="required"
+                         ng-show="$ctrl.regForm.passwordR.$touched && $ctrl.authService.user.password != $ctrl.passwordR">
+                        пароль не совпадает
+                    </div>
                 </div>
-            </div>
-        </md-input-container>
+            </md-input-container>
 
-        <div class="auth-and-reg__input-container"
-             layout="row" layout-align="space-around center">
-            <md-button class="md-primary md-raised"
-                       ng-click="$ctrl.reg()"
-                       ng-disabled="$ctrl.regForm.$invalid">
-                reg me
-            </md-button>
-        </div>
-    </form>
+            <div class="auth-and-reg__input-container"
+                 layout="row" layout-align="space-around center">
+                <md-button class="md-primary md-raised"
+                           ng-click="$ctrl.reg()"
+                           ng-disabled="$ctrl.regForm.$invalid">
+                    reg me
+                </md-button>
+            </div>
+        </form>
+    </md-card>
 </div>
