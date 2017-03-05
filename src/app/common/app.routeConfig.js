@@ -1,16 +1,20 @@
 let routeConfig = ($stateProvider, $urlRouterProvider) => {
     'ngInject';
 
-
-    $urlRouterProvider.otherwise('/recipes');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
-        .state('auth',{
+        .state('mainPage', {
+            name: 'mainPage',
+            url: '/',
+            component: 'mainPage'
+        })
+        .state('auth', {
             name: 'auth',
             url: '/auth',
             component: 'auth'
         })
-        .state('reg',{
+        .state('reg', {
             name: 'reg',
             url: '/reg',
             component: 'reg'
