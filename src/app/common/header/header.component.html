@@ -1,12 +1,23 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
         <span flex="5"></span>
-        <span>Beer Recipes AngularJS + ES6 Example App</span>
+        <span ui-sref="mainPage" style="cursor: pointer">
+            Beer Recipes AngularJS + ES6 Example App
+        </span>
 
         <span flex></span>
-        <md-button class="md-raised" aria-label="Login">
+        <md-button class="md-raised" aria-label="Login"
+                   ng-if="!$ctrl.authService.auth"
+                   ui-sref="auth">
             Login
         </md-button>
+        <div ng-if="$ctrl.authService.auth">
+            <span>{{$ctrl.authService.user.email}}</span>
+            <md-button class="md-raised" aria-label="Logout"
+                       ng-click="$ctrl.authService.auth = false">
+                Logout
+            </md-button>
+        </div>
         <span flex="5"></span>
     </div>
 </md-toolbar>
