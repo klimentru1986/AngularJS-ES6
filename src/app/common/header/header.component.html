@@ -14,7 +14,7 @@
         <div ng-if="$ctrl.authService.auth">
             <span>{{$ctrl.authService.user.email}}</span>
             <md-button class="md-raised" aria-label="Logout"
-                       ng-click="$ctrl.authService.auth = false">
+                       ng-click="$ctrl.logout()">
                 Logout
             </md-button>
         </div>

@@ -7,12 +7,17 @@ class AuthInterceptorService {
         this.authService = authService;
 
         this.response = (response) => {
-            let nonAuthPages = ['/reg', '/auth'];
+            let nonAuthPages = ['/','/reg', '/auth'];
             let location = this.$location.path();
 
             if (!this.authService.auth && nonAuthPages.indexOf(location) == -1) {
                 this.$location.path('/');
             }
+
+            if (this.authService.auth && nonAuthPages.indexOf(location) != -1) {
+                this.$location.path('/recipes');
+            }
+
             return response;
         };
     }
